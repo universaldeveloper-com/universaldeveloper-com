@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universal Blog</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo">
+                <i class="fas fa-blog"></i>
+            </div>
+            <div class="sidebar-menu">
+                <a href="#" class="active"><i class="fas fa-home"></i></a>
+                <a href="#"><i class="fas fa-heart"></i></a>
+                <a href="#"><i class="fas fa-bookmark"></i></a>
+                <a href="#"><i class="fas fa-user"></i></a>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Header -->
+            <header>
+                <div class="search-bar">
+                    <input type="text" placeholder="Search blogs">
+                </div>
+                <nav>
+                    <a href="#" class="active">All</a>
+                    <a href="#">Tech</a>
+                    <a href="#">Lifestyle</a>
+                    <a href="#">Travel</a>
+                    <a href="#">Food</a>
+                    <a href="#">More</a>
+                </nav>
+                <div class="user-profile">
+                    <img src="https://via.placeholder.com/40" alt="User">
+                    <span>Arti Maurya</span>
+                </div>
+            </header>
+
+            <!-- Featured Section -->
+            <section class="featured">
+                <div class="featured-left">
+                    <div class="trailer-card">
+                        <img src="https://via.placeholder.com/300x150" alt="Blog Thumbnail">
+                        <div class="trailer-info">
+                            <span class="tag">New Post</span>
+                            <h3>The Art of Minimalism</h3>
+                        </div>
+                    </div>
+                    <div class="trailer-card">
+                        <img src="https://via.placeholder.com/300x150" alt="Blog Thumbnail">
+                        <div class="trailer-info">
+                            <span class="tag">Trending</span>
+                            <h3>Top 10 Travel Destinations</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="featured-right">
+                    <img src="https://via.placeholder.com/600x300" alt="Featured Blog">
+                    <div class="featured-info">
+                        <h2>Across the Blog-Verse</h2>
+                        <p>Miles Morales catapults across the blogosphere, where he encounters a team of writers...</p>
+                        <div class="buttons">
+                            <button class="read-more"><i class="fas fa-book-open"></i> Read More</button>
+                            <button class="download"><i class="fas fa-download"></i> Download</button>
+                            <button class="share"><i class="fas fa-share-alt"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Continue Reading Section -->
+            <section class="continue-reading">
+                <h3>Continue Reading</h3>
+                <div class="reading-card">
+                    <img src="https://via.placeholder.com/100x60" alt="Blog Thumbnail">
+                    <div class="reading-info">
+                        <h4>Dark Season 3</h4>
+                        <p>Transformers: Da...</p>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 60%;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="reading-card">
+                    <img src="https://via.placeholder.com/100x60" alt="Blog Thumbnail">
+                    <div class="reading-info">
+                        <h4>Lupin Season 2</h4>
+                        <p>Avatar: The Wa...</p>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 30%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- You Might Like Section -->
+            <section class="you-might-like">
+                <h3>You Might Like</h3>
+                <div class="blog-grid">
+                    <div class="blog-card">
+                        <img src="https://via.placeholder.com/200x120" alt="Blog Thumbnail">
+                        <h4>The Flash (2023)</h4>
+                        <p>Barry Allen uses his...</p>
+                        <button class="read-more"><i class="fas fa-book-open"></i> Read More</button>
+                    </div>
+                    <div class="blog-card">
+                        <img src="https://via.placeholder.com/200x120" alt="Blog Thumbnail">
+                        <h4>Elemental</h4>
+                        <p>Follows Ember and...</p>
+                        <button class="read-more"><i class="fas fa-book-open"></i> Read More</button>
+                    </div>
+                    <div class="blog-card">
+                        <img src="https://via.placeholder.com/200x120" alt="Blog Thumbnail">
+                        <h4>Interstellar</h4>
+                        <p>A team of explorers...</p>
+                        <button class="read-more"><i class="fas fa-book-open"></i> Read More</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
