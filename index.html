@@ -6,132 +6,160 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>Universal Blog</title>
-    <link rel="stylesheet" href="styles.css">
+    <!-- Tailwind CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- SF Pro Font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@400;500;600;700&display=swap">
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-    <div class="container">
-        <!-- Sidebar -->
-        <div class="sidebar">
-            <div class="logo">
-                <i class="fas fa-blog"></i>
-            </div>
-            <div class="sidebar-menu">
-                <a href="#" class="active"><i class="fas fa-home"></i></a>
-                <a href="#"><i class="fas fa-heart"></i></a>
-                <a href="#"><i class="fas fa-bookmark"></i></a>
-                <a href="#"><i class="fas fa-user"></i></a>
+<body class="bg-black text-white font-sans">
+    <!-- Navbar -->
+    <nav class="fixed top-0 left-0 w-full bg-black bg-opacity-50 backdrop-blur-lg z-50 py-4">
+        <div class="container mx-auto flex justify-center items-center">
+            <div class="text-2xl font-semibold">
+                <i class="fas fa-blog text-white"></i> Universal Blog
             </div>
         </div>
+    </nav>
 
-        <!-- Main Content -->
-        <div class="main-content">
-            <!-- Header -->
-            <header>
-                <div class="search-bar">
-                    <i class="fas fa-search"></i>
-                    <input type="text" placeholder="Search blogs">
-                </div>
-                <nav>
-                    <a href="#" class="active">All</a>
-                    <a href="#">Tech</a>
-                    <a href="#">Lifestyle</a>
-                    <a href="#">Travel</a>
-                    <a href="#">Food</a>
-                    <a href="#">More</a>
-                </nav>
-                <div class="user-profile">
-                    <img src="https://via.placeholder.com/40" alt="User">
-                    <span>User</span>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-            </header>
+    <!-- Hero Section -->
+    <section class="hero min-h-screen flex items-center justify-center text-center">
+        <div class="container mx-auto px-4 animate-fade-in">
+            <h1 class="text-5xl md:text-6xl font-bold mb-4">Explore the Latest Trends</h1>
+            <p class="text-lg md:text-xl text-gray-400 mb-8">Discover insightful blogs on technology, lifestyle, and more.</p>
+            <a href="#blogs" class="inline-block bg-white text-black px-6 py-3 rounded-full font-semibold hover:bg-gray-200 transition-all duration-300">Read Now</a>
+        </div>
+    </section>
 
-            <!-- Featured Section -->
-            <section class="featured">
-                <div class="featured-left">
-                    <div class="trailer-card">
-                        <img src="https://via.placeholder.com/300x150" alt="Blog Placeholder">
-                        <div class="trailer-info">
-                            <span class="tag">New Post</span>
-                            <h3></h3>
-                        </div>
-                    </div>
-                    <div class="trailer-card">
-                        <img src="https://via.placeholder.com/300x150" alt="Blog Placeholder">
-                        <div class="trailer-info">
-                            <span class="tag">Trending</span>
-                            <h3></h3>
-                        </div>
-                    </div>
+    <!-- Blog Section -->
+    <section id="blogs" class="py-16 bg-gradient-to-b from-black to-gray-900">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 animate-fade-in">Trending Blogs</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Blog 1 -->
+                <div class="blog-card bg-gray-800 bg-opacity-50 backdrop-blur-md rounded-2xl p-6 shadow-lg transform hover:scale-105 transition-all duration-300">
+                    <img src="https://via.placeholder.com/300x200" alt="Blog 1" class="w-full h-48 object-cover rounded-xl mb-4">
+                    <h3 class="text-xl font-semibold mb-2">The Rise of AI in 2025</h3>
+                    <p class="text-gray-400 mb-4">A deep dive into how AI is transforming industries this year.</p>
+                    <button onclick="openModal('blog1')" class="read-more bg-white text-black px-4 py-2 rounded-full font-semibold hover:bg-gray-200 transition-all duration-300">Read More</button>
                 </div>
-                <div class="featured-right">
-                    <img src="https://via.placeholder.com/600x300" alt="Featured Blog Placeholder">
-                    <div class="featured-info">
-                        <h2></h2>
-                        <p></p>
-                        <div class="buttons">
-                            <button class="read-more"><i class="fas fa-book-open"></i> Read More</button>
-                            <button class="download"><i class="fas fa-download"></i> Download</button>
-                            <button class="share"><i class="fas fa-ellipsis-h"></i></button>
-                        </div>
-                    </div>
+                <!-- Blog 2 -->
+                <div class="blog-card bg-gray-800 bg-opacity-50 backdrop-blur-md rounded-2xl p-6 shadow-lg transform hover:scale-105 transition-all duration-300">
+                    <img src="https://via.placeholder.com/300x200" alt="Blog 2" class="w-full h-48 object-cover rounded-xl mb-4">
+                    <h3 class="text-xl font-semibold mb-2">Sustainable Living Trends</h3>
+                    <p class="text-gray-400 mb-4">Eco-friendly practices that are gaining popularity in 2025.</p>
+                    <button onclick="openModal('blog2')" class="read-more bg-white text-black px-4 py-2 rounded-full font-semibold hover:bg-gray-200 transition-all duration-300">Read More</button>
                 </div>
-            </section>
+                <!-- Blog 3 -->
+                <div class="blog-card bg-gray-800 bg-opacity-50 backdrop-blur-md rounded-2xl p-6 shadow-lg transform hover:scale-105 transition-all duration-300">
+                    <img src="https://via.placeholder.com/300x200" alt="Blog 3" class="w-full h-48 object-cover rounded-xl mb-4">
+                    <h3 class="text-xl font-semibold mb-2">The Future of Space Travel</h3>
+                    <p class="text-gray-400 mb-4">What’s next for space exploration in the coming decade.</p>
+                    <button onclick="openModal('blog3')" class="read-more bg-white text-black px-4 py-2 rounded-full font-semibold hover:bg-gray-200 transition-all duration-300">Read More</button>
+                </div>
+                <!-- Blog 4 -->
+                <div class="blog-card bg-gray-800 bg-opacity-50 backdrop-blur-md rounded-2xl p-6 shadow-lg transform hover:scale-105 transition-all duration-300">
+                    <img src="https://via.placeholder.com/300x200" alt="Blog 4" class="w-full h-48 object-cover rounded-xl mb-4">
+                    <h3 class="text-xl font-semibold mb-2">Metaverse: The Next Frontier</h3>
+                    <p class="text-gray-400 mb-4">How the metaverse is shaping digital interactions in 2025.</p>
+                    <button onclick="openModal('blog4')" class="read-more bg-white text-black px-4 py-2 rounded-full font-semibold hover:bg-gray-200 transition-all duration-300">Read More</button>
+                </div>
+                <!-- Blog 5 -->
+                <div class="blog-card bg-gray-800 bg-opacity-50 backdrop-blur-md rounded-2xl p-6 shadow-lg transform hover:scale-105 transition-all duration-300">
+                    <img src="https://via.placeholder.com/300x200" alt="Blog 5" class="w-full h-48 object-cover rounded-xl mb-4">
+                    <h3 class="text-xl font-semibold mb-2">Quantum Computing Breakthroughs</h3>
+                    <p class="text-gray-400 mb-4">The latest advancements in quantum technology.</p>
+                    <button onclick="openModal('blog5')" class="read-more bg-white text-black px-4 py-2 rounded-full font-semibold hover:bg-gray-200 transition-all duration-300">Read More</button>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            <!-- Continue Reading Section -->
-            <section class="continue-reading">
-                <h3>Continue Reading</h3>
-                <div class="reading-card">
-                    <img src="https://via.placeholder.com/100x60" alt="Blog Placeholder">
-                    <div class="reading-info">
-                        <h4></h4>
-                        <p></p>
-                        <div class="progress-bar">
-                            <div class="progress" style="width: 0%;"></div>
-                        </div>
-                    </div>
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-16 bg-gray-900">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 animate-fade-in">Subscription Plans</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="pricing-card bg-gray-800 bg-opacity-50 backdrop-blur-md rounded-2xl p-6 shadow-lg text-center transform hover:scale-105 transition-all duration-300">
+                    <h3 class="text-xl font-semibold mb-2">Basic</h3>
+                    <p class="text-3xl font-bold mb-4">$0<span class="text-sm text-gray-400">/mo</span></p>
+                    <p class="text-gray-400 mb-4">Access to all free blogs.</p>
+                    <button class="bg-white text-black px-4 py-2 rounded-full font-semibold hover:bg-gray-200 transition-all duration-300">Get Started</button>
                 </div>
-                <div class="reading-card">
-                    <img src="https://via.placeholder.com/100x60" alt="Blog Placeholder">
-                    <div class="reading-info">
-                        <h4></h4>
-                        <p></p>
-                        <div class="progress-bar">
-                            <div class="progress" style="width: 0%;"></div>
-                        </div>
-                    </div>
+                <div class="pricing-card bg-gray-800 bg-opacity-50 backdrop-blur-md rounded-2xl p-6 shadow-lg text-center transform hover:scale-105 transition-all duration-300">
+                    <h3 class="text-xl font-semibold mb-2">Pro</h3>
+                    <p class="text-3xl font-bold mb-4">$9.99<span class="text-sm text-gray-400">/mo</span></p>
+                    <p class="text-gray-400 mb-4">Exclusive content and ad-free experience.</p>
+                    <button class="bg-white text-black px-4 py-2 rounded-full font-semibold hover:bg-gray-200 transition-all duration-300">Get Started</button>
                 </div>
-            </section>
+                <div class="pricing-card bg-gray-800 bg-opacity-50 backdrop-blur-md rounded-2xl p-6 shadow-lg text-center transform hover:scale-105 transition-all duration-300">
+                    <h3 class="text-xl font-semibold mb-2">Premium</h3>
+                    <p class="text-3xl font-bold mb-4">$19.99<span class="text-sm text-gray-400">/mo</span></p>
+                    <p class="text-gray-400 mb-4">All Pro features + priority support.</p>
+                    <button class="bg-white text-black px-4 py-2 rounded-full font-semibold hover:bg-gray-200 transition-all duration-300">Get Started</button>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            <!-- You Might Like Section -->
-            <section class="you-might-like">
-                <h3>You Might Like</h3>
-                <div class="blog-grid">
-                    <div class="blog-card">
-                        <img src="https://via.placeholder.com/200x120" alt="Blog Placeholder">
-                        <h4></h4>
-                        <p></p>
-                        <button class="read-more"><i class="fas fa-book-open"></i> Read More</button>
-                    </div>
-                    <div class="blog-card">
-                        <img src="https://via.placeholder.com/200x120" alt="Blog Placeholder">
-                        <h4></h4>
-                        <p></p>
-                        <button class="read-more"><i class="fas fa-book-open"></i> Read More</button>
-                    </div>
-                    <div class="blog-card">
-                        <img src="https://via.placeholder.com/200x120" alt="Blog Placeholder">
-                        <h4></h4>
-                        <p></p>
-                        <button class="read-more"><i class="fas fa-book-open"></i> Read More</button>
-                    </div>
-                </div>
-                <button class="see-all">See All</button>
-            </section>
+    <!-- Footer -->
+    <footer class="py-8 bg-black bg-opacity-50 backdrop-blur-lg">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-gray-400 mb-2">&copy; 2025 Universal Blog. All rights reserved.</p>
+            <div class="flex justify-center gap-4">
+                <a href="#" class="text-gray-400 hover:text-white transition-all duration-300"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="text-gray-400 hover:text-white transition-all duration-300"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-gray-400 hover:text-white transition-all duration-300"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Action Button -->
+    <button id="fab" class="fixed bottom-8 right-8 bg-white text-black p-4 rounded-full shadow-lg hover:bg-gray-200 transition-all duration-300">
+        <i class="fas fa-plus"></i>
+    </button>
+
+    <!-- Modal for Blog Content -->
+    <div id="modal" class="modal hidden fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50">
+        <div class="modal-content bg-gray-800 bg-opacity-90 backdrop-blur-lg rounded-2xl p-6 max-w-lg w-full max-h-[80vh] overflow-y-auto">
+            <div class="flex justify-between items-center mb-4">
+                <h2 id="modal-title" class="text-2xl font-semibold"></h2>
+                <button onclick="closeModal()" class="text-gray-400 hover:text-white transition-all duration-300">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <img id="modal-image" src="" alt="Blog Image" class="w-full h-48 object-cover rounded-xl mb-4">
+            <div id="modal-content" class="text-gray-300"></div>
         </div>
     </div>
+
+    <!-- Blog Content Data (Hidden) -->
+    <div id="blog-data" class="hidden">
+        <div id="blog1-content">
+            <h2>The Rise of AI in 2025</h2>
+            <p>Artificial Intelligence has taken a massive leap in 2025, with breakthroughs in natural language processing and computer vision. Companies like xAI are leading the charge, creating AI systems that can assist in everything from healthcare diagnostics to autonomous driving. This year, we’ve seen AI models that can generate human-like text, create art, and even assist in scientific research. The ethical implications are being debated, but the potential for AI to solve global challenges is undeniable.</p>
+        </div>
+        <div id="blog2-content">
+            <h2>Sustainable Living Trends</h2>
+            <p>In 2025, sustainable living is more than a trend—it’s a necessity. From zero-waste homes to electric vehicles, people are adopting eco-friendly practices at an unprecedented rate. Solar panels are now more affordable, and urban farming is on the rise. Brands are also stepping up, with many committing to carbon-neutral goals. This blog explores the top sustainable trends and how you can incorporate them into your daily life.</p>
+        </div>
+        <div id="blog3-content">
+            <h2>The Future of Space Travel</h2>
+            <p>Space travel is no longer a distant dream. In 2025, companies like SpaceX and Blue Origin are making regular trips to low Earth orbit, and plans for lunar bases are in motion. The Artemis program is set to return humans to the Moon, while Mars missions are being planned for the next decade. This blog dives into the latest advancements in space technology and what they mean for humanity’s future among the stars.</p>
+        </div>
+        <div id="blog4-content">
+            <h2>Metaverse: The Next Frontier</h2>
+            <p>The metaverse is reshaping how we interact online in 2025. Virtual reality and augmented reality technologies have matured, allowing users to work, socialize, and play in fully immersive digital worlds. Companies are investing billions into metaverse platforms, and NFTs are becoming a key part of the economy. This blog explores the opportunities and challenges of the metaverse, and what it means for the future of the internet.</p>
+        </div>
+        <div id="blog5-content">
+            <h2>Quantum Computing Breakthroughs</h2>
+            <p>Quantum computing is making headlines in 2025 with significant breakthroughs. Researchers have achieved quantum supremacy in multiple fields, solving problems that classical computers couldn’t handle. From cryptography to drug discovery, quantum computers are poised to revolutionize technology. This blog breaks down the latest advancements and their potential impact on industries worldwide.</p>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
