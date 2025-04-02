@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Universal Blog - Blogs</title>
+    <!-- Tailwind CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- SF Pro Font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@400;500;600;700&display=swap">
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-black text-white font-sans">
+    <!-- Status Bar -->
+    <div class="status-bar fixed top-0 left-0 w-full bg-black bg-opacity-50 backdrop-blur-lg z-50 py-2 px-4 flex justify-between items-center">
+        <span class="text-sm">9:41</span>
+        <div class="flex gap-2">
+            <i class="fas fa-signal text-sm"></i>
+            <i class="fas fa-wifi text-sm"></i>
+            <i class="fas fa-battery-full text-sm"></i>
+        </div>
+    </div>
+
+    <!-- Blogs Section -->
+    <section class="py-16 bg-gradient-to-b from-black to-gray-900 pt-12">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 animate-fade-in">Blogs</h2>
+            <!-- Free Blogs -->
+            <h3 class="text-2xl font-semibold mb-6">Free Content</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                <!-- Blog 1 -->
+                <div class="blog-card bg-gray-800 bg-opacity-50 backdrop-blur-md rounded-2xl p-6 shadow-lg transform hover:scale-105 transition-all duration-300">
+                    <img src="https://via.placeholder.com/300x200" alt="Blog 1" class="w-full h-48 object-cover rounded-xl mb-4">
+                    <h3 class="text-xl font-semibold mb-2">The Rise of AI in 2025</h3>
+                    <p class="text-gray-400 mb-4">A deep dive into how AI is transforming industries this year.</p>
+                    <button onclick="openBottomSheet('blog1')" class="read-more bg-white text-black px-4 py-2 rounded-full font-semibold hover:bg-gray-200 transition-all duration-300">Read More</button>
+                </div>
+                <!-- Blog 2 -->
+                <div class="blog-card bg-gray-800 bg-opacity-50 backdrop-blur-md rounded-2xl p-6 shadow-lg transform hover:scale-105 transition-all duration-300">
+                    <img src="https://via.placeholder.com/300x200" alt="Blog 2" class="w-full h-48 object-cover rounded-xl mb-4">
+                    <h3 class="text-xl font-semibold mb-2">Sustainable Living Trends</h3>
+                    <p class="text-gray-400 mb-4">Eco-friendly practices that are gaining popularity in 2025.</p>
+                    <button onclick="openBottomSheet('blog2')" class="read-more bg-white text-black px-4 py-2 rounded-full font-semibold hover:bg-gray-200 transition-all duration-300">Read More</button>
+                </div>
+                <!-- Blog 3 -->
+                <div class="blog-card bg-gray-800 bg-opacity-50 backdrop-blur-md rounded-2xl p-6 shadow-lg transform hover:scale-105 transition-all duration-300">
+                    <img src="https://via.placeholder.com/300x200" alt="Blog 3" class="w-full h-48 object-cover rounded-xl mb-4">
+                    <h3 class="text-xl font-semibold mb-2">The Future of Space Travel</h3>
+                    <p class="text-gray-400 mb-4">What’s next for space exploration in the coming decade.</p>
+                    <button onclick="openBottomSheet('blog3')" class="read-more bg-white text-black px-4 py-2 rounded-full font-semibold hover:bg-gray-200 transition-all duration-300">Read More</button>
+                </div>
+            </div>
+            <!-- Premium Blogs -->
+            <h3 class="text-2xl font-semibold mb-6">Premium Content</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Blog 4 -->
+                <div class="blog-card bg-gray-800 bg-opacity-50 backdrop-blur-md rounded-2xl p-6 shadow-lg transform hover:scale-105 transition-all duration-300">
+                    <img src="https://via.placeholder.com/300x200" alt="Blog 4" class="w-full h-48 object-cover rounded-xl mb-4">
+                    <h3 class="text-xl font-semibold mb-2">Metaverse: The Next Frontier</h3>
+                    <p class="text-gray-400 mb-4">How the metaverse is shaping digital interactions in 2025.</p>
+                    <button onclick="openBottomSheet('blog4')" class="read-more bg-white text-black px-4 py-2 rounded-full font-semibold hover:bg-gray-200 transition-all duration-300">Read More</button>
+                </div>
+                <!-- Blog 5 -->
+                <div class="blog-card bg-gray-800 bg-opacity-50 backdrop-blur-md rounded-2xl p-6 shadow-lg transform hover:scale-105 transition-all duration-300">
+                    <img src="https://via.placeholder.com/300x200" alt="Blog 5" class="w-full h-48 object-cover rounded-xl mb-4">
+                    <h3 class="text-xl font-semibold mb-2">Quantum Computing Breakthroughs</h3>
+                    <p class="text-gray-400 mb-4">The latest advancements in quantum technology.</p>
+                    <button onclick="openBottomSheet('blog5')" class="read-more bg-white text-black px-4 py-2 rounded-full font-semibold hover:bg-gray-200 transition-all duration-300">Read More</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bottom Navigation Bar -->
+    <nav class="bottom-nav fixed bottom-0 left-0 w-full bg-black bg-opacity-50 backdrop-blur-lg z-50 py-4">
+        <div class="container mx-auto flex justify-around items-center">
+            <a href="index.html" class="text-gray-400 hover:text-white transition-all duration-300"><i class="fas fa-home text-2xl"></i></a>
+            <a href="blogs.html" class="text-gray-400 hover:text-white transition-all duration-300 active"><i class="fas fa-book text-2xl"></i></a>
+            <a href="store.html" class="text-gray-400 hover:text-white transition-all duration-300"><i class="fas fa-store text-2xl"></i></a>
+            <a href="#" onclick="toggleSidebar()" class="text-gray-400 hover:text-white transition-all duration-300"><i class="fas fa-bars text-2xl"></i></a>
+        </div>
+    </nav>
+
+    <!-- Sidebar -->
+    <div id="sidebar" class="sidebar fixed top-0 left-0 h-full w-64 bg-gray-800 bg-opacity-90 backdrop-blur-lg z-50 transform -translate-x-full transition-transform duration-300">
+        <div class="p-6">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-xl font-semibold">Settings</h2>
+                <button onclick="toggleSidebar()" class="text-gray-400 hover:text-white transition-all duration-300">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="flex items-center justify-between mb-4">
+                <span>Dark Mode</span>
+                <label class="switch">
+                    <input type="checkbox" id="theme-toggle">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <a href="#" class="block py-2 text-gray-400 hover:text-white transition-all duration-300">Profile</a>
+            <a href="#" class="block py-2 text-gray-400 hover:text-white transition-all duration-300">Notifications</a>
+            <a href="#" class="block py-2 text-gray-400 hover:text-white transition-all duration-300">Logout</a>
+        </div>
+    </div>
+
+    <!-- Bottom Sheet for Blog Content -->
+    <div id="bottom-sheet" class="bottom-sheet fixed bottom-0 left-0 w-full bg-gray-800 bg-opacity-90 backdrop-blur-lg rounded-t-3xl z-50 transform translate-y-full transition-transform duration-500">
+        <div class="p-6">
+            <div class="flex justify-center mb-4">
+                <div class="w-12 h-1 bg-gray-500 rounded-full"></div>
+            </div>
+            <div class="flex justify-between items-center mb-4">
+                <h2 id="sheet-title" class="text-2xl font-semibold"></h2>
+                <button onclick="closeBottomSheet()" class="text-gray-400 hover:text-white transition-all duration-300">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <img id="sheet-image" src="" alt="Blog Image" class="w-full h-48 object-cover rounded-xl mb-4">
+            <div id="sheet-content" class="text-gray-300"></div>
+        </div>
+    </div>
+
+    <!-- Blog Content Data (Hidden) -->
+    <div id="blog-data" class="hidden">
+        <div id="blog1-content">
+            <h2>The Rise of AI in 2025</h2>
+            <p>Artificial Intelligence has taken a massive leap in 2025, with breakthroughs in natural language processing and computer vision. Companies like xAI are leading the charge, creating AI systems that can assist in everything from healthcare diagnostics to autonomous driving. This year, we’ve seen AI models that can generate human-like text, create art, and even assist in scientific research. The ethical implications are being debated, but the potential for AI to solve global challenges is undeniable.</p>
+        </div>
+        <div id="blog2-content">
+            <h2>Sustainable Living Trends</h2>
+            <p>In 2025, sustainable living is more than a trend—it’s a necessity. From zero-waste homes to electric vehicles, people are adopting eco-friendly practices at an unprecedented rate. Solar panels are now more affordable, and urban farming is on the rise. Brands are also stepping up, with many committing to carbon-neutral goals. This blog explores the top sustainable trends and how you can incorporate them into your daily life.</p>
+        </div>
+        <div id="blog3-content">
+            <h2>The Future of Space Travel</h2>
+            <p>Space travel is no longer a distant dream. In 2025, companies like SpaceX and Blue Origin are making regular trips to low Earth orbit, and plans for lunar bases are in motion. The Artemis program is set to return humans to the Moon, while Mars missions are being planned for the next decade. This blog dives into the latest advancements in space technology and what they mean for humanity’s future among the stars.</p>
+        </div>
+        <div id="blog4-content">
+            <h2>Metaverse: The Next Frontier</h2>
+            <p>The metaverse is reshaping how we interact online in 2025. Virtual reality and augmented reality technologies have matured, allowing users to work, socialize, and play in fully immersive digital worlds. Companies are investing billions into metaverse platforms, and NFTs are becoming a key part of the economy. This blog explores the opportunities and challenges of the metaverse, and what it means for the future of the internet.</p>
+        </div>
+        <div id="blog5-content">
+            <h2>Quantum Computing Breakthroughs</h2>
+            <p>Quantum computing is making headlines in 2025 with significant breakthroughs. Researchers have achieved quantum supremacy in multiple fields, solving problems that classical computers couldn’t handle. From cryptography to drug discovery, quantum computers are poised to revolutionize technology. This blog breaks down the latest advancements and their potential impact on industries worldwide.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+  </html>
