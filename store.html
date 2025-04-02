@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Universal Blog - Store</title>
+    <!-- Tailwind CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- SF Pro Font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@400;500;600;700&display=swap">
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-black text-white font-sans">
+    <!-- Status Bar -->
+    <div class="status-bar fixed top-0 left-0 w-full bg-black bg-opacity-50 backdrop-blur-lg z-50 py-2 px-4 flex justify-between items-center">
+        <span class="text-sm">9:41</span>
+        <div class="flex gap-2">
+            <i class="fas fa-signal text-sm"></i>
+            <i class="fas fa-wifi text-sm"></i>
+            <i class="fas fa-battery-full text-sm"></i>
+        </div>
+    </div>
+
+    <!-- Store Section -->
+    <section class="py-16 bg-gradient-to-b from-black to-gray-900 pt-12">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 animate-fade-in">Store</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Item 1 -->
+                <div class="store-card bg-gray-800 bg-opacity-50 backdrop-blur-md rounded-2xl p-6 shadow-lg transform hover:scale-105 transition-all duration-300">
+                    <img src="https://via.placeholder.com/300x200" alt="Item 1" class="w-full h-48 object-cover rounded-xl mb-4">
+                    <h3 class="text-xl font-semibold mb-2">Eco-Friendly Notebook</h3>
+                    <p class="text-gray-400 mb-2">$19.99</p>
+                    <p class="text-gray-400 mb-4">A sustainable notebook made from recycled materials.</p>
+                    <button onclick="openBottomSheet('item1')" class="bg-white text-black px-4 py-2 rounded-full font-semibold hover:bg-gray-200 transition-all duration-300">View Details</button>
+                </div>
+                <!-- Item 2 -->
+                <div class="store-card bg-gray-800 bg-opacity-50 backdrop-blur-md rounded-2xl p-6 shadow-lg transform hover:scale-105 transition-all duration-300">
+                    <img src="https://via.placeholder.com/300x200" alt="Item 2" class="w-full h-48 object-cover rounded-xl mb-4">
+                    <h3 class="text-xl font-semibold mb-2">Wireless Earbuds</h3>
+                    <p class="text-gray-400 mb-2">$59.99</p>
+                    <p class="text-gray-400 mb-4">High-quality earbuds with noise cancellation.</p>
+                    <button onclick="openBottomSheet('item2')" class="bg-white text-black px-4 py-2 rounded-full font-semibold hover:bg-gray-200 transition-all duration-300">View Details</button>
+                </div>
+                <!-- Item 3 -->
+                <div class="store-card bg-gray-800 bg-opacity-50 backdrop-blur-md rounded-2xl p-6 shadow-lg transform hover:scale-105 transition-all duration-300">
+                    <img src="https://via.placeholder.com/300x200" alt="Item 3" class="w-full h-48 object-cover rounded-xl mb-4">
+                    <h3 class="text-xl font-semibold mb-2">Smart Water Bottle</h3>
+                    <p class="text-gray-400 mb-2">$29.99</p>
+                    <p class="text-gray-400 mb-4">Tracks your hydration with a sleek design.</p>
+                    <button onclick="openBottomSheet('item3')" class="bg-white text-black px-4 py-2 rounded-full font-semibold hover:bg-gray-200 transition-all duration-300">View Details</button>
+                </div>
+                <!-- Item 4 -->
+                <div class="store-card bg-gray-800 bg-opacity-50 backdrop-blur-md rounded-2xl p-6 shadow-lg transform hover:scale-105 transition-all duration-300">
+                    <img src="https://via.placeholder.com/300x200" alt="Item 4" class="w-full h-48 object-cover rounded-xl mb-4">
+                    <h3 class="text-xl font-semibold mb-2">Portable Charger</h3>
+                    <p class="text-gray-400 mb-2">$39.99</p>
+                    <p class="text-gray-400 mb-4">Compact charger with fast-charging capabilities.</p>
+                    <button onclick="openBottomSheet('item4')" class="bg-white text-black px-4 py-2 rounded-full font-semibold hover:bg-gray-200 transition-all duration-300">View Details</button>
+                </div>
+                <!-- Item 5 -->
+                <div class="store-card bg-gray-800 bg-opacity-50 backdrop-blur-md rounded-2xl p-6 shadow-lg transform hover:scale-105 transition-all duration-300">
+                    <img src="https://via.placeholder.com/300x200" alt="Item 5" class="w-full h-48 object-cover rounded-xl mb-4">
+                    <h3 class="text-xl font-semibold mb-2">Minimalist Backpack</h3>
+                    <p class="text-gray-400 mb-2">$49.99</p>
+                    <p class="text-gray-400 mb-4">A sleek backpack for everyday use.</p>
+                    <button onclick="openBottomSheet('item5')" class="bg-white text-black px-4 py-2 rounded-full font-semibold hover:bg-gray-200 transition-all duration-300">View Details</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bottom Navigation Bar -->
+    <nav class="bottom-nav fixed bottom-0 left-0 w-full bg-black bg-opacity-50 backdrop-blur-lg z-50 py-4">
+        <div class="container mx-auto flex justify-around items-center">
+            <a href="index.html" class="text-gray-400 hover:text-white transition-all duration-300"><i class="fas fa-home text-2xl"></i></a>
+            <a href="blogs.html" class="text-gray-400 hover:text-white transition-all duration-300"><i class="fas fa-book text-2xl"></i></a>
+            <a href="store.html" class="text-gray-400 hover:text-white transition-all duration-300 active"><i class="fas fa-store text-2xl"></i></a>
+            <a href="#" onclick="toggleSidebar()" class="text-gray-400 hover:text-white transition-all duration-300"><i class="fas fa-bars text-2xl"></i></a>
+        </div>
+    </nav>
+
+    <!-- Sidebar -->
+    <div id="sidebar" class="sidebar fixed top-0 left-0 h-full w-64 bg-gray-800 bg-opacity-90 backdrop-blur-lg z-50 transform -translate-x-full transition-transform duration-300">
+        <div class="p-6">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-xl font-semibold">Settings</h2>
+                <button onclick="toggleSidebar()" class="text-gray-400 hover:text-white transition-all duration-300">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="flex items-center justify-between mb-4">
+                <span>Dark Mode</span>
+                <label class="switch">
+                    <input type="checkbox" id="theme-toggle">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <a href="#" class="block py-2 text-gray-400 hover:text-white transition-all duration-300">Profile</a>
+            <a href="#" class="block py-2 text-gray-400 hover:text-white transition-all duration-300">Notifications</a>
+            <a href="#" class="block py-2 text-gray-400 hover:text-white transition-all duration-300">Logout</a>
+        </div>
+    </div>
+
+    <!-- Bottom Sheet for Item Details -->
+    <div id="bottom-sheet" class="bottom-sheet fixed bottom-0 left-0 w-full bg-gray-800 bg-opacity-90 backdrop-blur-lg rounded-t-3xl z-50 transform translate-y-full transition-transform duration-500">
+        <div class="p-6">
+            <div class="flex justify-center mb-4">
+                <div class="w-12 h-1 bg-gray-500 rounded-full"></div>
+            </div>
+            <div class="flex justify-between items-center mb-4">
+                <h2 id="sheet-title" class="text-2xl font-semibold"></h2>
+                <button onclick="closeBottomSheet()" class="text-gray-400 hover:text-white transition-all duration-300">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <img id="sheet-image" src="" alt="Item Image" class="w-full h-48 object-cover rounded-xl mb-4">
+            <div id="sheet-content" class="text-gray-300"></div>
+            <button class="bg-white text-black px-4 py-2 rounded-full font-semibold hover:bg-gray-200 transition-all duration-300 mt-4 w-full">Add to Cart</button>
+        </div>
+    </div>
+
+    <!-- Item Content Data (Hidden) -->
+    <div id="item-data" class="hidden">
+        <div id="item1-content">
+            <h2>Eco-Friendly Notebook</h2>
+            <p>Price: $19.99</p>
+            <p>This eco-friendly notebook is made from 100% recycled materials, featuring a minimalist design and 200 pages of high-quality paper. Perfect for journaling, note-taking, or sketching.</p>
+        </div>
+        <div id="item2-content">
+            <h2>Wireless Earbuds</h2>
+            <p>Price: $59.99</p>
+            <p>Experience crystal-clear sound with these wireless earbuds. They come with active noise cancellation, up to 20 hours of battery life, and a sleek charging case.</p>
+        </div>
+        <div id="item3-content">
+            <h2>Smart Water Bottle</h2>
+            <p>Price: $29.99</p>
+            <p>Stay hydrated with this smart water bottle that tracks your daily water intake via a mobile app. It features a sleek design and a built-in reminder system.</p>
+        </div>
+        <div id="item4-content">
+            <h2>Portable Charger</h2>
+            <p>Price: $39.99</p>
+            <p>Never run out of power with this compact portable charger. It supports fast charging, has a 10,000mAh capacity, and includes multiple USB ports for charging multiple devices.</p>
+        </div>
+        <div id="item5-content">
+            <h2>Minimalist Backpack</h2>
+            <p>Price: $49.99</p>
+            <p>This minimalist backpack is perfect for daily use, with a spacious main compartment, laptop sleeve, and water-resistant material. Ideal for work, school, or travel.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+          </html>
