@@ -1,28 +1,85 @@
-// Modal Functionality
-function openModal(blogId) {
-    const modal = document.getElementById('modal');
-    const modalTitle = document.getElementById('modal-title');
-    const modalImage = document.getElementById('modal-image');
-    const modalContent = document.getElementById('modal-content');
-    const blogContent = document.getElementById(`${blogId}-content`);
+// Theme Toggle with System Preference Detection
+const themeToggle = document.getElementById('theme-toggle');
+const body = document.body;
 
-    modalTitle.textContent = blogContent.querySelector('h2').textContent;
-    modalImage.src = document.querySelector(`.blog-card img[alt="${blogId.replace('blog', 'Blog ')}"]`).src;
-    modalContent.innerHTML = blogContent.querySelector('p').textContent;
-
-    modal.classList.add('show');
+function setTheme() {
+    if (themeToggle.checked || window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        body.classList.add('light-mode');
+    } else {
+        body.classList.remove('light-mode');
+    }
 }
 
-function closeModal() {
-    const modal = document.getElementById('modal');
-    modal.classList.remove('show');
+themeToggle.addEventListener('change', setTheme);
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', setTheme);
+setTheme();
+
+// Bottom Sheet Functionality
+let isDragging = false;
+let startY;
+let currentY;
+
+function openBottomSheet(id) {
+    const sheet = document.getElementById('bottom-sheet');
+    const sheetTitle = document.getElementById('sheet-title');
+    const sheetImage = document.getElementById('sheet-image');
+    const sheetContent = document.getElementById('sheet-content');
+    const content = document.getElementById(`${id}-content`);
+
+    sheetTitle.textContent = content.querySelector('h2').textContent;
+    sheetImage.src = document.querySelector(`[alt="${id.replace('item', 'Item ').replace('blog', 'Blog ')}"]`).src;
+    sheetContent.innerHTML = content.innerHTML.replace('<h2>' + sheetTitle.textContent + '</h2>', '');
+    sheet.classList.remove('hide');
+    sheet.classList.add('show');
+    sheet.classList.add('haptic-feedback');
+}
+
+function closeBottomSheet() {
+    const sheet = document.getElementById('bottom-sheet');
+    sheet.classList.remove('show');
+    sheet.classList.add('hide');
+    sheet.classList.add('haptic-feedback');
+}
+
+// Draggable Bottom Sheet
+const sheet = document.getElementById('bottom-sheet');
+sheet.addEventListener('touchstart', (e) => {
+    isDragging = true;
+    startY = e.touches[0].clientY;
+});
+
+sheet.addEventListener('touchmove', (e) => {
+    if (!isDragging) return;
+    currentY = e.touches[0].clientY;
+    const deltaY = currentY - startY;
+    if (deltaY > 0) {
+        sheet.style.transform = `translateY(${deltaY}px)`;
+    }
+});
+
+sheet.addEventListener('touchend', () => {
+    isDragging = false;
+    if (currentY - startY > 100) {
+        closeBottomSheet();
+    } else {
+        sheet.style.transform = 'translateY(0)';
+    }
+});
+
+// Sidebar Toggle
+function toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    sidebar.classList.toggle('show');
+    sidebar.classList.add('haptic-feedback');
 }
 
 // Parallax Effect for Hero Section
 window.addEventListener('scroll', () => {
     const hero = document.querySelector('.hero');
-    const scrollPosition = window.pageYOffset;
-    hero.style.backgroundPositionY = `${scrollPosition * 0.5}px`;
+    if (hero) {
+        const scrollPosition = window.pageYOffset;
+        hero.style.backgroundPositionY = `${scrollPosition * 0.5}px`;
+    }
 });
 
 // Fade-in Animation on Scroll
@@ -34,12 +91,22 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, { threshold: 0.1 });
 
-document.querySelectorAll('.blog-card, .pricing-card').forEach(card => {
+document.querySelectorAll('.blog-card, .store-card, .pricing-card').forEach(card => {
     observer.observe(card);
 });
 
-// Floating Action Button Click
-document.getElementById('fab').addEventListener('click', () => {
-    alert('Create a new blog post!');
-    // You can add functionality to open a form or redirect to a new page
+// Page Transition Animation
+document.querySelectorAll('a[href^="index.html"], a[href^="blogs.html"], a[href^="store.html"]').forEach(link => {
+    link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const href = link.getAttribute('href');
+        document.body.style.opacity = '0';
+        setTimeout(() => {
+            window.location.href = href;
+        }, 300);
+    });
+});
+
+window.addEventListener('load', () => {
+    document.body.style.opacity = '1';
 });
