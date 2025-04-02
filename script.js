@@ -1,17 +1,13 @@
-// Theme Toggle with System Preference Detection
+// Theme Toggle (Always Dark Mode for This Version)
 const themeToggle = document.getElementById('theme-toggle');
 const body = document.body;
 
 function setTheme() {
-    if (themeToggle.checked || window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        body.classList.add('light-mode');
-    } else {
-        body.classList.remove('light-mode');
-    }
+    // Since we're using a premium dark theme, we'll keep it dark
+    body.classList.remove('light-mode');
 }
 
 themeToggle.addEventListener('change', setTheme);
-window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', setTheme);
 setTheme();
 
 // Bottom Sheet Functionality
@@ -95,18 +91,20 @@ document.querySelectorAll('.blog-card, .store-card, .pricing-card').forEach(card
     observer.observe(card);
 });
 
-// Page Transition Animation
+// Seamless Page Transitions (Slide-in Effect)
 document.querySelectorAll('a[href^="index.html"], a[href^="blogs.html"], a[href^="store.html"]').forEach(link => {
     link.addEventListener('click', (e) => {
         e.preventDefault();
         const href = link.getAttribute('href');
-        document.body.style.opacity = '0';
+        document.body.style.transition = 'transform 0.5s ease';
+        document.body.style.transform = 'translateX(-100%)';
         setTimeout(() => {
             window.location.href = href;
-        }, 300);
+        }, 500);
     });
 });
 
 window.addEventListener('load', () => {
-    document.body.style.opacity = '1';
+    document.body.style.transition = 'transform 0.5s ease';
+    document.body.style.transform = 'translateX(0)';
 });
